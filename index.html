@@ -9,14 +9,50 @@
 <p>But maybe this will.</p>
 <pre>
   <code>
-    var hi = 2+3;
-    function test() {
-    var output = hi + 5;
-    
-      if (!output==10) {
-        alert('failed');
-      }
-    }
+    function $id(el) {
+  return document.getElementById(el);
+}
+setInterval( function() {
+  var a = $id('a').value;
+  var b = $id('b').value;
+  var c = $id('c').value;
+  
+  var x = (-b+Math.sqrt((b*b)-(4*a*c)))/(2*a);
+  var x2 = (-b-Math.sqrt((b*b)-(4*a*c)))/(2*a);
+  $id('output').innerHTML = 'X intercepts: ' + x + ' and ' + x2; 
+
+  
+  var factor = -x;
+  var factor2 = -x2;
+  
+  $id('output').innerHTML += '<br>Factors: ' + factor + ' , ' + factor2; 
+},0);
+
+setInterval (function() {
+      var a = $id('a').value;
+  var b = $id('b').value;
+  var c = $id('c').value;
+  var d;
+  
+  d = (b*b)-(4*a*c);
+  
+  $id('output').innerHTML += '<br>Discriminant: ' + d;
+},0);
+
+setInterval (function() {
+  var a = $id('a').value;
+  var b = $id('b').value;
+  var c = $id('c').value;
+  var t = -b/(2*a);
+  var t2 = (a*(t*t)+b*t+parseInt(c,'10'));
+  var v;
+  $id('output').innerHTML += '<br>Vertex: ' + '( ' + t + ', ' + t2 + ' )';
+  
+  $id('output').innerHTML += '<br>Vertex Form: y ' + ' = ' + a + '( x + ' + -t + ' )' + ' + ' + t2;
+  
+},0);
+
+
     
   </code>
 </pre>
